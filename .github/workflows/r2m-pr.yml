@@ -23,4 +23,4 @@ jobs:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GIT_PR_RELEASE_TOKEN }}
         run: |
           gem install git-pr-release
-          git-pr-release || echo "Done."
+          git-pr-release
