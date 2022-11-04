@@ -21,6 +21,8 @@ jobs:
         env:
           TZ: Asia/Tokyo
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GIT_PR_RELEASE_TOKEN }}
+          GIT_PR_RELEASE_BRANCH_PRODUCTION: "main"
+          GIT_PR_RELEASE_BRANCH_STAGING: "release"
         run: |
           gem install git-pr-release
           git-pr-release
