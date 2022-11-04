@@ -20,7 +20,7 @@ jobs:
       - name: Execute gir-pr-release (release -> main)
         env:
           TZ: Asia/Tokyo
-          GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_PR_RELEASE_TOKEN: ${{ secrets.GIT_PR_RELEASE_TOKEN }}
         run: |
           gem install git-pr-release
           git-pr-release || echo "Done."
