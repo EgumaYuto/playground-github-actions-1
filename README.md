@@ -1,3 +1,3 @@
 # playground-github-actions-1
 
-sample patch 2
+sample patch 3
