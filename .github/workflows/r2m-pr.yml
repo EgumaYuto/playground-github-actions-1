@@ -1,0 +1,28 @@
+name: r2m-pr
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  r2m-pr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby 3.0
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Execute gir-pr-release (release -> main)
+        env:
+          TZ: Asia/Tokyo
+          GIT_PR_RELEASE_TOKEN: ${{ secrets.GIT_PR_RELEASE_TOKEN }}
+          GIT_PR_RELEASE_BRANCH_PRODUCTION: "main"
+          GIT_PR_RELEASE_BRANCH_STAGING: "release"
+        run: |
+          gem install git-pr-release
+          git-pr-release
