@@ -1,0 +1,9 @@
+Release <%= Time.now %>
+
+## Staged Pull Requests
+<% pull_requests.each do |pr| -%>
+<%=  pr.to_checklist_item %>
+<% end -%>
+
+## Release Checklist
+- [ ] This is Checklist
